@@ -70,7 +70,8 @@ const Img = styled("img")(() => ({
 export default function Home() {
   return (
     <Layout>
-      <Background />
+
+      {/* <Background />
       <Container>
         <TextContainer>
           <InnerTextContainer>
@@ -87,7 +88,7 @@ export default function Home() {
           </Text>
         </TextContainer>
         <Img src="/home/shb-img-2.jpeg" />
-      </Container>
+      </Container> */}
     </Layout>
   );
 }

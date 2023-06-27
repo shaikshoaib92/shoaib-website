@@ -1,31 +1,50 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import styled from "@emotion/styled";
+import { isDesktop, isMobile } from "react-device-detect";
+import Sidebar from "./Sidebar";
+
+const Container = styled("div")(() => ({
+  display: "flex",
+  flexDirection: "column",
+}));
+
+const SubContainer = styled("div")(() => ({
+  marginTop: "60px",
+  width: "100%",
+  overflowX: "hidden",
+  overflowY: "hidden",
+}));
+
+const MobileContainer = styled("div")(() => ({
+  display: "flex",
+  margin: -10,
+}));
+
+const MobileSubContainer = styled("div")(() => ({
+  display: "flex",
+  flexDirection: "column",
+}));
 
 const Layout = ({ children }) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Navbar />
-      <div
-        style={{
-          marginTop: "60px",
-          // overflow: "scroll",
-          //   overflowX: "hidden",
-          width: "100%",
-          overflowX: "hidden",
-          overflowY: "hidden",
-        }}
-      >
-        {children}
-      </div>
-      <Footer />
-    </div>
-  );
+  if (isMobile) {
+    return (
+      <MobileContainer>
+        <Sidebar />
+        <MobileSubContainer>{children}</MobileSubContainer>
+      </MobileContainer>
+    );
+  }
+  if (isDesktop) {
+    return (
+      <Container>
+        <Navbar />
+        <SubContainer>{children}</SubContainer>
+        <Footer />
+      </Container>
+    );
+  }
 };
 
 export default Layout;
