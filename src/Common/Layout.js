@@ -25,6 +25,7 @@ const MobileContainer = styled("div")(() => ({
 const MobileSubContainer = styled("div")(() => ({
   display: "flex",
   flexDirection: "column",
+  padding:"10px"
 }));
 
 const Layout = ({ children }) => {

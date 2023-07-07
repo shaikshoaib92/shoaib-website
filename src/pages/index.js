@@ -2,6 +2,8 @@ import Layout from "@/Common/Layout";
 import { montserrat } from "./Fonts";
 import Background from "@/Common/Background";
 import styled from "@emotion/styled";
+import { isMobile } from "react-device-detect";
+import MobileBackground from "@/Common/MobileBackground";
 
 const Container = styled("div")(() => ({
   backgroundImage: "/home/bgimg.jpg",
@@ -60,35 +62,69 @@ const Text = styled("p")(() => ({
 }));
 
 const Img = styled("img")(() => ({
-  height: "70%",
-  width: "400px",
+  width: isMobile ? "200px" : "400px",
+  height: isMobile ? "35%" :"70%",
   marginTop: "80px",
   borderRadius: "50px",
-  border: "1px solid black",
+  // border: "1px solid black",
 }));
 
 export default function Home() {
   return (
     <Layout>
-
-      {/* <Background />
-      <Container>
+      {isMobile ? <MobileBackground /> : <Background />}
+      <Container
+        style={{
+          flexDirection: isMobile ? "column" : "",
+          position: isMobile ? "relative" : "",
+          // top:isMobile ?  0:"",
+          justifyContent: isMobile ? "center" : "",
+          alignItems: isMobile ? "center" : "",
+          left: 0,
+        }}
+      >
         <TextContainer>
-          <InnerTextContainer>
-            <Heading>
+          <InnerTextContainer
+            style={{
+              textAlign: isMobile ? "center" : "",
+              // marginTop: -250,
+            }}
+          >
+            <Heading
+              style={{
+                fontSize: isMobile ? "25px" : "",
+              }}
+            >
               I'm
               <span> Shaik Shoaib.</span>
             </Heading>
-            <SubHeading>Full Stack Developer</SubHeading>
-            <SubHeading2>Based in India</SubHeading2>
+            <SubHeading
+              style={{
+                fontSize: isMobile ? "20px" : "",
+              }}
+            >
+              Full Stack Developer
+            </SubHeading>
+            <SubHeading2
+              style={{
+                fontSize: isMobile ? "18px" : "",
+              }}
+            >
+              Based in India
+            </SubHeading2>
           </InnerTextContainer>
-          <Text>
+          <Text
+            style={{
+              textAlign: isMobile ? "center" : "",
+            }}
+          >
             Welcome to my portfolio website, where I showcase my skills,
             projects, and journey in the world of web development.
           </Text>
         </TextContainer>
+
         <Img src="/home/shb-img-2.jpeg" />
-      </Container> */}
+      </Container>
     </Layout>
   );
 }

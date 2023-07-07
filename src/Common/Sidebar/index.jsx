@@ -34,21 +34,27 @@ const Sidebar = () => {
   return (
     <>
       {!open ? (
-        <MenuIcon
-          style={{
-            paddingLeft: "10px",
-            paddingTop: "10px",
-            width: "40px",
-            height: "40px",
-          }}
-          onClick={() => setOpen(!open)}
-        />
+        <></>
+        // <MenuIcon
+        //   style={{
+        //     paddingLeft: "10px",
+        //     paddingTop: "10px",
+        //     width: "40px",
+        //     height: "40px",
+        //     position: "relative",
+        //     left: 0,
+        //     zIndex: -1,
+        //   }}
+        //   onClick={() => {
+        //     console.log("I am clicked");
+        //     setOpen(!open)}}
+        // />
       ) : (
         <Container
           style={{
             width: open ? "50%" : 0,
             transform: "1s",
-            transition:"0.8s"
+            transition: "0.8s",
           }}
         >
           <CloseIcon

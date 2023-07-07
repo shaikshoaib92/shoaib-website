@@ -1,4 +1,5 @@
 import * as React from "react";
+import { isMobile } from "react-device-detect";
 const Background = (props) => (
   <div
     style={{
@@ -6,12 +7,11 @@ const Background = (props) => (
       zIndex: -999,
       top: 110,
       left: 30,
-      // rotate:"-180deg"
     }}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={1440}
+      width={ 1440}
       height={560}
       preserveAspectRatio="none"
       {...props}
