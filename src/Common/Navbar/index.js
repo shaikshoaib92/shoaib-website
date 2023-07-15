@@ -25,14 +25,22 @@ const SubContainer = styled("div")(() => ({
 const Page = styled("div")(() => ({
   fontFamily: montserrat.style.fontFamily,
   cursor: "pointer",
+  color: "black",
 }));
 
-const Acitve = ({ active, children }) => {
-  const ActiveContainer = styled("div")(() => ({
-    borderBottom: active ? "2px solid red" : "",
-    padding: "10px",
-  }));
-  <ActiveContainer>{children}</ActiveContainer>;
+const ActiveContainer = styled("div")(() => ({
+  padding: "10px",
+}));
+const Acitve = (children) => {
+  // active, children 
+  <ActiveContainer
+    style={{
+      // active ?
+      borderBottom:  "2px solid red",
+    }}
+  >
+    {children}
+  </ActiveContainer>;
 };
 
 const Navbar = () => {
@@ -41,7 +49,7 @@ const Navbar = () => {
   return (
     <Container>
       <SubContainer>
-        <Page onClick={() => router.push("/")}>Home</Page>
+          <Page onClick={() => router.push("/")}>Home</Page>
         <Page onClick={() => router.push("/about")}>About</Page>
         <Page onClick={() => router.push("/contact")}>Contact</Page>
       </SubContainer>
@@ -52,8 +60,11 @@ const Navbar = () => {
 export default Navbar;
 
 {
+  {/* active={path === "/" ? true : false} */}
   /* </Acitve>
-        <Acitve active={path === "/about" ? true : false}>
-        <Acitve active={path === "/contact" ? true : false}>
+  <Acitve active={path === "/about" ? true : false}>
+  <Acitve active={path === "/contact" ? true : false}>
+  <Acitve >
+  </Acitve>
         </Acitve> */
 }

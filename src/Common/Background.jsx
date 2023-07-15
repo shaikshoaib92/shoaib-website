@@ -1,5 +1,5 @@
 import * as React from "react";
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 const Background = (props) => (
   <div
     style={{
